@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display GIF</title>
+  <style>
+    /* Center the entire page content */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    /* Container for the image and text overlay */
+    .container {
+      position: relative;
+      text-align: center;
+    }
+    /* Set image size to 50% of its container and center it */
+    .container img {
+      width: 50%;
+      height: auto;
+      /* Ensures no extra space below the image */
+    }
+    /* Overlay text styling */
+    .text-overlay {
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8em;
+      color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <p id="date-text" class="text-overlay">CCTV Image of : </p>
+    <img src="image/output.gif" alt="GIF Image">
+  </div>
+
+  <script>
+    // Get the current date
+    const today = new Date();
+    
+    // Subtract one day to get yesterday's date
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+    
+    // Format yesterday's date
+    const dateString = yesterday.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+    
+    // Display the date in the paragraph
+    document.getElementById("date-text").textContent += dateString;
+  </script>
+
+</body>
+</html>
