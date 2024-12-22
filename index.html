@@ -21,7 +21,7 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      width: 100%;
+      width: 80%;
     }
 
     /* Container for each image and text overlay */
@@ -33,7 +33,7 @@
 
     /* Set image size and center it */
     .container img {
-      width: 100%;
+      width: 50%;
       height: auto;
     }
 
@@ -56,8 +56,8 @@
   <div class="wrapper">
     <!-- First GIF container -->
     <div class="container">
-      <p id="date-text1" class="text-overlay">CCTV Image of: </p>
-      <img src="image/output1.gif" alt="GIF Image 1">
+      <p id="date-text3" class="text-overlay">CCTV Image of: </p>
+      <img src="image/output3.gif" alt="GIF Image 3">
     </div>
 
     <!-- Second GIF container -->
@@ -79,7 +79,7 @@
     const dateString = yesterday.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
     
     // Display the date in the overlay text for both GIFs
-    document.getElementById("date-text1").textContent += dateString;
+    document.getElementById("date-text3").textContent += dateString;
     document.getElementById("date-text2").textContent += dateString;
   </script>
 
