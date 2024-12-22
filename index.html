@@ -3,33 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Display GIF</title>
+  <title>Display Two GIFs</title>
   <style>
     /* Center the entire page content */
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 70vh;
+      height: 100vh;
       margin: 0;
       background-color: #f0f0f0;
       font-family: Arial, sans-serif;
     }
-    /* Container for the image and text overlay */
+
+    /* Wrapper to hold both containers */
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      width: 80%;
+    }
+
+    /* Container for each image and text overlay */
     .container {
       position: relative;
       text-align: center;
+      flex: 1;
     }
-    /* Set image size to 50% of its container and center it */
+
+    /* Set image size and center it */
     .container img {
-      width: 50%;
+      width: 100%;
       height: auto;
-      /* Ensures no extra space below the image */
     }
+
     /* Overlay text styling */
     .text-overlay {
       position: absolute;
-      top: 0px;
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       font-size: 0.8em;
@@ -42,9 +53,18 @@
 </head>
 <body>
   
-  <div class="container">
-    <p id="date-text" class="text-overlay">CCTV Image of : </p>
-    <img src="image/output.gif" alt="GIF Image">
+  <div class="wrapper">
+    <!-- First GIF container -->
+    <div class="container">
+      <p id="date-text1" class="text-overlay">CCTV Image of: </p>
+      <img src="image/output1.gif" alt="GIF Image 1">
+    </div>
+
+    <!-- Second GIF container -->
+    <div class="container">
+      <p id="date-text2" class="text-overlay">CCTV Image of: </p>
+      <img src="image/output2.gif" alt="GIF Image 2">
+    </div>
   </div>
 
   <script>
@@ -58,8 +78,9 @@
     // Format yesterday's date
     const dateString = yesterday.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
     
-    // Display the date in the paragraph
-    document.getElementById("date-text").textContent += dateString;
+    // Display the date in the overlay text for both GIFs
+    document.getElementById("date-text1").textContent += dateString;
+    document.getElementById("date-text2").textContent += dateString;
   </script>
 
 </body>
